@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var users_controller = require('../controllers/usersController');
-const { check } = require('express-validator/check');
+const { check } = require('express-validator');
 
 // Reglas de validación:
 const valid_user = [

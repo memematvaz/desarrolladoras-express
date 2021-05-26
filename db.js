@@ -13,6 +13,7 @@ module.exports.connect = function (url, callback) {
 
     // Creamos una instancia del cliente de MongoDB:
     const client = new MongoClient(url, {
+        useUnifiedTopology: true,
         useNewUrlParser: true
     });
 
