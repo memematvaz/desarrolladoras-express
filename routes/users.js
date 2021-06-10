@@ -3,7 +3,6 @@ var router = express.Router();
 var users_controller = require('../controllers/usersController');
 const { check } = require('express-validator');
 
-// Reglas de validación:
 const valid_user = [
     check('Nombre', 'El nombre indicado debe tener al menos 3 caracteres y no puede incluir números')
         .isLength({ min: 3 })
@@ -25,16 +24,12 @@ const valid_user = [
         .isIn(['Hombre', 'Mujer', 'Otro', 'No especificado'])
   ];
 
-// Método GET para listar usuarios:
 router.get('/', users_controller.users_list);
 
-// Método POST para crear usuarios con validaciones:
 router.post('/', valid_user, users_controller.users_create);
 
-// Método PUT para actualizar usuarios con validaciones:
 router.put('/:id', valid_user, users_controller.users_update_one);
 
-// Método DELETE para borrar usuarios:
 router.delete('/:id', users_controller.users_delete_one);
 
 module.exports = router;
